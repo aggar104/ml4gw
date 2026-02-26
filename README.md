@@ -31,7 +31,7 @@
 | ml4gw/transforms/decimator.py             |       50 |        0 |    100% |           |
 | ml4gw/transforms/iirfilter.py             |       17 |        0 |    100% |           |
 | ml4gw/transforms/integrator.py            |       32 |        0 |    100% |           |
-| ml4gw/transforms/parameters.py            |       12 |       12 |      0% |      1-22 |
+| ml4gw/transforms/parameters.py            |       13 |       13 |      0% |      1-24 |
 | ml4gw/transforms/pearson.py               |       28 |        3 |     89% |47, 52, 59 |
 | ml4gw/transforms/qtransform.py            |      170 |       14 |     92% |148, 321, 329-331, 338-347 |
 | ml4gw/transforms/scaler.py                |       31 |        0 |    100% |           |
@@ -58,7 +58,7 @@
 | ml4gw/waveforms/cbc/utils.py              |       48 |        0 |    100% |           |
 | ml4gw/waveforms/conversion.py             |       81 |        0 |    100% |           |
 | ml4gw/waveforms/generator.py              |      103 |        0 |    100% |           |
-| **TOTAL**                                 | **3138** |  **200** | **94%** |           |
+| **TOTAL**                                 | **3139** |  **201** | **94%** |           |
 
 
 ## Setup coverage badge
