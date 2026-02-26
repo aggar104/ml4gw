@@ -31,7 +31,7 @@
 | ml4gw/transforms/decimator.py             |       50 |        0 |    100% |           |
 | ml4gw/transforms/iirfilter.py             |       17 |        0 |    100% |           |
 | ml4gw/transforms/integrator.py            |       32 |        0 |    100% |           |
-| ml4gw/transforms/parameters.py            |       14 |       14 |      0% |      1-26 |
+| ml4gw/transforms/parameters.py            |       14 |       14 |      0% |      1-27 |
 | ml4gw/transforms/pearson.py               |       28 |        3 |     89% |47, 52, 59 |
 | ml4gw/transforms/qtransform.py            |      170 |       14 |     92% |148, 321, 329-331, 338-347 |
 | ml4gw/transforms/scaler.py                |       31 |        0 |    100% |           |
