@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="z_95f549deb747211b_pearson_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.13.1">coverage.py v7.13.1</a>,
-            created at 2026-02-25 19:15 +0000
+            created at 2026-02-26 09:48 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -90,7 +90,7 @@
     <p class="pln"><span class="n"><a id="t8" href="#t8">8</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t">    <span class="nam">M_ref</span> <span class="op">=</span> <span class="num">1.0</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t">    <span class="nam">chirp_mass</span> <span class="op">=</span> <span class="nam">parameters</span><span class="op">[</span><span class="str">"chirp_mass"</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t">    <span class="key">if</span> <span class="nam">reverse</span> <span class="op">==</span> <span class="key">False</span> <span class="key">and</span> <span class="nam">jacobian</span> <span class="op">==</span> <span class="key">False</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t">    <span class="key">if</span> <span class="key">not</span> <span class="nam">reverse</span> <span class="key">and</span> <span class="key">not</span> <span class="nam">jacobian</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">        <span class="nam">chirp_distance</span> <span class="op">=</span> <span class="nam">parameters</span><span class="op">[</span><span class="str">"distance"</span><span class="op">]</span>  <span class="com"># Dc</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">        <span class="com"># Dl = Dc * (Mc/M_ref)^(5/6)</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">        <span class="key">return</span> <span class="nam">chirp_distance</span> <span class="op">*</span> <span class="op">(</span><span class="nam">chirp_mass</span> <span class="op">/</span> <span class="nam">M_ref</span><span class="op">)</span> <span class="op">**</span> <span class="op">(</span><span class="num">5</span> <span class="op">/</span> <span class="num">6</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -98,9 +98,9 @@
     <p class="mis show_mis"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">    <span class="key">if</span> <span class="nam">reverse</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">        <span class="nam">distance</span> <span class="op">=</span> <span class="nam">parameters</span><span class="op">[</span><span class="str">"distance"</span><span class="op">]</span>  <span class="com"># Dl</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">        <span class="com"># Dc = Dl / (Mc/M_ref)^(5/6)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">        <span class="key">return</span> <span class="nam">chirp_distance</span> <span class="op">/</span> <span class="op">(</span><span class="nam">chirp_mass</span> <span class="op">/</span> <span class="nam">M_ref</span><span class="op">)</span> <span class="op">**</span> <span class="op">(</span><span class="num">5</span> <span class="op">/</span> <span class="num">6</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">        <span class="key">return</span> <span class="nam">distance</span> <span class="op">/</span> <span class="op">(</span><span class="nam">chirp_mass</span> <span class="op">/</span> <span class="nam">M_ref</span><span class="op">)</span> <span class="op">**</span> <span class="op">(</span><span class="num">5</span> <span class="op">/</span> <span class="num">6</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">    <span class="key">if</span> <span class="nam">jacobain</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">    <span class="key">if</span> <span class="nam">jacobian</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">        <span class="key">return</span> <span class="op">-</span> <span class="nam">torch</span><span class="op">.</span><span class="nam">log</span><span class="op">(</span><span class="nam">chirp_mass</span> <span class="op">**</span> <span class="op">(</span><span class="num">5</span><span class="op">/</span><span class="num">6</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t24" href="#t24">24</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -113,7 +113,7 @@
             <a class="nav" href="z_95f549deb747211b_pearson_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.13.1">coverage.py v7.13.1</a>,
-            created at 2026-02-25 19:15 +0000
+            created at 2026-02-26 09:48 +0000
         </p>
     </div>
 </footer>
