@@ -1,0 +1,12 @@
+ml4gw.transforms.distance
+=========================
+
+.. automodule:: ml4gw.transforms.distance
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      sample_chirp_distance
+   

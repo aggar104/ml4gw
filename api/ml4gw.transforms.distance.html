@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml4gw.transforms.scaler &mdash; ml4gw  documentation</title>
+  <title>ml4gw.transforms.distance &mdash; ml4gw  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ml4gw.transforms.snr_rescaler" href="ml4gw.transforms.snr_rescaler.html" />
-    <link rel="prev" title="ml4gw.transforms.qtransform" href="ml4gw.transforms.qtransform.html" /> 
+    <link rel="next" title="ml4gw.transforms.heterodyne" href="ml4gw.transforms.heterodyne.html" />
+    <link rel="prev" title="ml4gw.transforms.decimator" href="ml4gw.transforms.decimator.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,16 +62,16 @@
 <li class="toctree-l2"><a class="reference internal" href="ml4gw.spectral.html">ml4gw.spectral</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="ml4gw.transforms.html">ml4gw.transforms</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.decimator.html">ml4gw.transforms.decimator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.distance.html">ml4gw.transforms.distance</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ml4gw.transforms.distance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ml4gw.transforms.distance.sample_chirp_distance"><code class="docutils literal notranslate"><span class="pre">sample_chirp_distance()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.heterodyne.html">ml4gw.transforms.heterodyne</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.iirfilter.html">ml4gw.transforms.iirfilter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.integrator.html">ml4gw.transforms.integrator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.pearson.html">ml4gw.transforms.pearson</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.qtransform.html">ml4gw.transforms.qtransform</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ml4gw.transforms.scaler</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ml4gw.transforms.scaler.ChannelWiseScaler"><code class="docutils literal notranslate"><span class="pre">ChannelWiseScaler</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.scaler.html">ml4gw.transforms.scaler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.snr_rescaler.html">ml4gw.transforms.snr_rescaler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.spectral.html">ml4gw.transforms.spectral</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.spectrogram.html">ml4gw.transforms.spectrogram</a></li>
@@ -104,9 +104,9 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="ml4gw.html">ml4gw</a></li>
           <li class="breadcrumb-item"><a href="ml4gw.transforms.html">ml4gw.transforms</a></li>
-      <li class="breadcrumb-item active">ml4gw.transforms.scaler</li>
+      <li class="breadcrumb-item active">ml4gw.transforms.distance</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/api/ml4gw.transforms.scaler.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/ml4gw.transforms.distance.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -114,70 +114,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-ml4gw.transforms.scaler">
-<span id="ml4gw-transforms-scaler"></span><h1>ml4gw.transforms.scaler<a class="headerlink" href="#module-ml4gw.transforms.scaler" title="Link to this heading"></a></h1>
-<p class="rubric">Classes</p>
+  <section id="module-ml4gw.transforms.distance">
+<span id="ml4gw-transforms-distance"></span><h1>ml4gw.transforms.distance<a class="headerlink" href="#module-ml4gw.transforms.distance" title="Link to this heading"></a></h1>
+<p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.transforms.scaler.ChannelWiseScaler" title="ml4gw.transforms.scaler.ChannelWiseScaler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChannelWiseScaler</span></code></a>([num_channels])</p></td>
-<td><p>Scale timeseries channels to be zero mean unit variance</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.transforms.distance.sample_chirp_distance" title="ml4gw.transforms.distance.sample_chirp_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_chirp_distance</span></code></a>(parameters[, reverse, ...])</p></td>
+<td><p>Convert the uniform chirp distance (Dc) to luminosity distance (Dl) Use only chirp mass scaling</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py class">
-<dt class="sig sig-object py" id="ml4gw.transforms.scaler.ChannelWiseScaler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml4gw.transforms.scaler.</span></span><span class="sig-name descname"><span class="pre">ChannelWiseScaler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.transforms.scaler.ChannelWiseScaler" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="ml4gw.transforms.transform.html#ml4gw.transforms.transform.FittableTransform" title="ml4gw.transforms.transform.FittableTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">FittableTransform</span></code></a></p>
-<p>Scale timeseries channels to be zero mean unit variance</p>
-<p>Scales timeseries channels by the mean and standard
-deviation of the channels of the timeseries used to
-fit the module. To reverse the scaling, provide the
-<code class="docutils literal notranslate"><span class="pre">reverse=True</span></code> keyword argument at call time.
-By default, the scaling parameters are set to zero mean
-and unit variance, amounting to an identity transform.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>num_channels</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) -- The number of channels of the target timeseries.
-If left as <code class="docutils literal notranslate"><span class="pre">None</span></code>, the timeseries will be assumed
-to be 1D (single channel).</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="ml4gw.transforms.scaler.ChannelWiseScaler.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_reg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.transforms.scaler.ChannelWiseScaler.fit" title="Link to this definition"></a></dt>
-<dd><p>Fit the scaling parameters to a timeseries</p>
-<p>Computes the channel-wise mean and standard deviation
-of the timeseries <code class="docutils literal notranslate"><span class="pre">X</span></code> and sets these values to the
-<code class="docutils literal notranslate"><span class="pre">mean</span></code> and <code class="docutils literal notranslate"><span class="pre">std</span></code> parameters of the scaler.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>X</strong> (<em>Float</em><em>[</em><em>Tensor</em><em>, </em><em>'</em><em>...</em><em> time'</em><em>]</em>)</p></li>
-<li><p><strong>std_reg</strong> (<em>float</em><em> | </em><em>None</em>)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ml4gw.transforms.scaler.ChannelWiseScaler.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.transforms.scaler.ChannelWiseScaler.forward" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"> <span class="pre">time']</span></code></span></p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>X</strong> (<em>Float</em><em>[</em><em>Tensor</em><em>, </em><em>'</em><em>...</em><em> time'</em><em>]</em>)</p></li>
-<li><p><strong>reverse</strong> (<em>bool</em>)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<dl class="py function">
+<dt class="sig sig-object py" id="ml4gw.transforms.distance.sample_chirp_distance">
+<span class="sig-prename descclassname"><span class="pre">ml4gw.transforms.distance.</span></span><span class="sig-name descname"><span class="pre">sample_chirp_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jacobian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.transforms.distance.sample_chirp_distance" title="Link to this definition"></a></dt>
+<dd><p>Convert the uniform chirp distance (Dc) to luminosity distance (Dl)
+Use only chirp mass scaling</p>
 </dd></dl>
 
 </section>
@@ -186,8 +137,8 @@ of the timeseries <code class="docutils literal notranslate"><span class="pre">X
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ml4gw.transforms.qtransform.html" class="btn btn-neutral float-left" title="ml4gw.transforms.qtransform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ml4gw.transforms.snr_rescaler.html" class="btn btn-neutral float-right" title="ml4gw.transforms.snr_rescaler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ml4gw.transforms.decimator.html" class="btn btn-neutral float-left" title="ml4gw.transforms.decimator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ml4gw.transforms.heterodyne.html" class="btn btn-neutral float-right" title="ml4gw.transforms.heterodyne" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

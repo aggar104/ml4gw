@@ -11,6 +11,7 @@ ml4gw.transforms
    :recursive:
 
    decimator
+   distance
    heterodyne
    iirfilter
    integrator
