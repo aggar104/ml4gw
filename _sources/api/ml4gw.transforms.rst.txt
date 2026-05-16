@@ -12,11 +12,9 @@ ml4gw.transforms
 
    chirp_distance
    decimator
-   distance
    heterodyne
    iirfilter
    integrator
-   parameters
    pearson
    qtransform
    scaler
