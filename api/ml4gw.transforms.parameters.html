@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml4gw.transforms.transform &mdash; ml4gw  documentation</title>
+  <title>ml4gw.transforms.parameters &mdash; ml4gw  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ml4gw.transforms.waveforms" href="ml4gw.transforms.waveforms.html" />
-    <link rel="prev" title="ml4gw.transforms.spline_interpolation" href="ml4gw.transforms.spline_interpolation.html" /> 
+    <link rel="next" title="ml4gw.transforms.pearson" href="ml4gw.transforms.pearson.html" />
+    <link rel="prev" title="ml4gw.transforms.integrator" href="ml4gw.transforms.integrator.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -66,7 +66,10 @@
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.heterodyne.html">ml4gw.transforms.heterodyne</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.iirfilter.html">ml4gw.transforms.iirfilter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.integrator.html">ml4gw.transforms.integrator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.parameters.html">ml4gw.transforms.parameters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ml4gw.transforms.parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ml4gw.transforms.parameters.sample_chirp_distance"><code class="docutils literal notranslate"><span class="pre">sample_chirp_distance()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.pearson.html">ml4gw.transforms.pearson</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.qtransform.html">ml4gw.transforms.qtransform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.scaler.html">ml4gw.transforms.scaler</a></li>
@@ -74,11 +77,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.spectral.html">ml4gw.transforms.spectral</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.spectrogram.html">ml4gw.transforms.spectrogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.spline_interpolation.html">ml4gw.transforms.spline_interpolation</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ml4gw.transforms.transform</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ml4gw.transforms.transform.FittableSpectralTransform"><code class="docutils literal notranslate"><span class="pre">FittableSpectralTransform</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ml4gw.transforms.transform.FittableTransform"><code class="docutils literal notranslate"><span class="pre">FittableTransform</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.transform.html">ml4gw.transforms.transform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.waveforms.html">ml4gw.transforms.waveforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ml4gw.transforms.whitening.html">ml4gw.transforms.whitening</a></li>
 </ul>
@@ -106,9 +105,9 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="ml4gw.html">ml4gw</a></li>
           <li class="breadcrumb-item"><a href="ml4gw.transforms.html">ml4gw.transforms</a></li>
-      <li class="breadcrumb-item active">ml4gw.transforms.transform</li>
+      <li class="breadcrumb-item active">ml4gw.transforms.parameters</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/api/ml4gw.transforms.transform.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/ml4gw.transforms.parameters.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -116,53 +115,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-ml4gw.transforms.transform">
-<span id="ml4gw-transforms-transform"></span><h1>ml4gw.transforms.transform<a class="headerlink" href="#module-ml4gw.transforms.transform" title="Link to this heading"></a></h1>
-<p class="rubric">Classes</p>
+  <section id="module-ml4gw.transforms.parameters">
+<span id="ml4gw-transforms-parameters"></span><h1>ml4gw.transforms.parameters<a class="headerlink" href="#module-ml4gw.transforms.parameters" title="Link to this heading"></a></h1>
+<p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.transforms.transform.FittableSpectralTransform" title="ml4gw.transforms.transform.FittableSpectralTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FittableSpectralTransform</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.transforms.transform.FittableTransform" title="ml4gw.transforms.transform.FittableTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FittableTransform</span></code></a>()</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.transforms.parameters.sample_chirp_distance" title="ml4gw.transforms.parameters.sample_chirp_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_chirp_distance</span></code></a>(parameters[, reverse, ...])</p></td>
+<td><p>Convert between chirp distance and luminosity distance using chirp-mass scaling.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py class">
-<dt class="sig sig-object py" id="ml4gw.transforms.transform.FittableSpectralTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml4gw.transforms.transform.</span></span><span class="sig-name descname"><span class="pre">FittableSpectralTransform</span></span><a class="headerlink" href="#ml4gw.transforms.transform.FittableSpectralTransform" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ml4gw.transforms.transform.FittableTransform" title="ml4gw.transforms.transform.FittableTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">FittableTransform</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ml4gw.transforms.transform.FittableSpectralTransform.normalize_psd">
-<span class="sig-name descname"><span class="pre">normalize_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fftlength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.transforms.transform.FittableSpectralTransform.normalize_psd" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Float[Tensor,</span> <span class="pre">'frequency']</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">Float[Tensor,</span> <span class="pre">'channel</span> <span class="pre">frequency']</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">Float[Tensor,</span> <span class="pre">'batch</span> <span class="pre">channel</span> <span class="pre">frequency']</span></code></span></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml4gw.transforms.parameters.sample_chirp_distance">
+<span class="sig-prename descclassname"><span class="pre">ml4gw.transforms.parameters.</span></span><span class="sig-name descname"><span class="pre">sample_chirp_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jacobian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.transforms.parameters.sample_chirp_distance" title="Link to this definition"></a></dt>
+<dd><p>Convert between chirp distance and luminosity distance using chirp-mass scaling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameters</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>torch.Tensor</em><em>]</em>) -- <dl class="simple">
+<dt>Dictionary containing parameter tensors. Must contain:</dt><dd><ul>
+<li><p>&quot;chirp_mass&quot;: chirp mass tensor</p></li>
+<li><p>&quot;distance&quot;: distance tensor</p></li>
+</ul>
 </dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Tensor</em><em>, </em><em>'time'</em><em>] </em><em>| </em><em>Float</em><em>[</em><em>Tensor</em><em>, </em><em>'channel time'</em><em>] </em><em>| </em><em>Float</em><em>[</em><em>Tensor</em><em>, </em><em>'batch channel time'</em><em>]</em>)</p></li>
-<li><p><strong>sample_rate</strong> (<em>float</em>)</p></li>
-<li><p><strong>num_freqs</strong> (<em>int</em>)</p></li>
-<li><p><strong>fftlength</strong> (<em>float</em><em> | </em><em>None</em>)</p></li>
-<li><p><strong>overlap</strong> (<em>float</em><em> | </em><em>None</em>)</p></li>
+<dt>The &quot;distance&quot; entry is interpreted as:</dt><dd><ul>
+<li><p>chirp distance (Dc) when <code class="docutils literal notranslate"><span class="pre">reverse=False</span></code></p></li>
+<li><p>luminosity distance (Dl) when <code class="docutils literal notranslate"><span class="pre">reverse=True</span></code></p></li>
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="ml4gw.transforms.transform.FittableTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml4gw.transforms.transform.</span></span><span class="sig-name descname"><span class="pre">FittableTransform</span></span><a class="headerlink" href="#ml4gw.transforms.transform.FittableTransform" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ml4gw.transforms.transform.FittableTransform.build">
-<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.transforms.transform.FittableTransform.build" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+</p></li>
+<li><p><strong>reverse</strong> (<em>bool</em><em>, </em><em>optional</em>) -- <dl class="simple">
+<dt>If <code class="docutils literal notranslate"><span class="pre">False</span></code> (default), convert chirp distance to luminosity distance:</dt><dd><p>Dl = Dc * (Mc / M_ref)^(5/6)</p>
+</dd>
+<dt>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, apply the inverse transformation:</dt><dd><p>Dc = Dl / (Mc / M_ref)^(5/6)</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>jacobian</strong> (<em>bool</em><em>, </em><em>optional</em>) -- If <code class="docutils literal notranslate"><span class="pre">True</span></code>, return the log-Jacobian term of the transformation
+instead of transformed parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>If <code class="docutils literal notranslate"><span class="pre">jacobian=False</span></code>, returns the modified parameter dictionary.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">jacobian=True</span></code>, returns the log-Jacobian tensor:</p>
+<blockquote>
+<div><p>-log((Mc / M_ref)^(5/6))</p>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, torch.Tensor] or torch.Tensor</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -171,8 +176,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ml4gw.transforms.spline_interpolation.html" class="btn btn-neutral float-left" title="ml4gw.transforms.spline_interpolation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ml4gw.transforms.waveforms.html" class="btn btn-neutral float-right" title="ml4gw.transforms.waveforms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ml4gw.transforms.integrator.html" class="btn btn-neutral float-left" title="ml4gw.transforms.integrator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ml4gw.transforms.pearson.html" class="btn btn-neutral float-right" title="ml4gw.transforms.pearson" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

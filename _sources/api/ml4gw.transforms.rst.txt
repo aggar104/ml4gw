@@ -15,6 +15,7 @@ ml4gw.transforms
    heterodyne
    iirfilter
    integrator
+   parameters
    pearson
    qtransform
    scaler
