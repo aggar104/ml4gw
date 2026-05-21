@@ -10,7 +10,6 @@ ml4gw.transforms
    :toctree:
    :recursive:
 
-   chirp_distance
    decimator
    heterodyne
    iirfilter

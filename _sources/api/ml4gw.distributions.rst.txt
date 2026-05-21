@@ -8,6 +8,7 @@ ml4gw.distributions
 
    .. autosummary::
    
+      ChirpDistribution
       Cosine
       DeltaFunction
       LogNormal
