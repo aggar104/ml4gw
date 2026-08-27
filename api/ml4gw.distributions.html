@@ -59,6 +59,13 @@
 <li class="toctree-l2"><a class="reference internal" href="ml4gw.constants.html">ml4gw.constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ml4gw.dataloading.html">ml4gw.dataloading</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ml4gw.distributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ml4gw.distributions.ChirpDistanceUniform"><code class="docutils literal notranslate"><span class="pre">ChirpDistanceUniform</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ml4gw.distributions.ChirpDistanceUniform.get_distance"><code class="docutils literal notranslate"><span class="pre">ChirpDistanceUniform.get_distance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ml4gw.distributions.ChirpDistanceUniform.log_prob"><code class="docutils literal notranslate"><span class="pre">ChirpDistanceUniform.log_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ml4gw.distributions.ChirpDistanceUniform.sample"><code class="docutils literal notranslate"><span class="pre">ChirpDistanceUniform.sample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ml4gw.distributions.ChirpDistanceUniform.scale"><code class="docutils literal notranslate"><span class="pre">ChirpDistanceUniform.scale()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#ml4gw.distributions.ChirpDistribution"><code class="docutils literal notranslate"><span class="pre">ChirpDistribution</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#ml4gw.distributions.ChirpDistribution.log_prob"><code class="docutils literal notranslate"><span class="pre">ChirpDistribution.log_prob()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ml4gw.distributions.ChirpDistribution.sample"><code class="docutils literal notranslate"><span class="pre">ChirpDistribution.sample()</span></code></a></li>
@@ -141,35 +148,105 @@ from the corresponding distribution.</p>
 <p class="rubric">Classes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.ChirpDistribution" title="ml4gw.distributions.ChirpDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChirpDistribution</span></code></a>(chirp_mass, chirp_distance)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.ChirpDistanceUniform" title="ml4gw.distributions.ChirpDistanceUniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChirpDistanceUniform</span></code></a>(chirp_distance[, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.Cosine" title="ml4gw.distributions.Cosine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cosine</span></code></a>([low, high, validate_args])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.ChirpDistribution" title="ml4gw.distributions.ChirpDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChirpDistribution</span></code></a>(chirp_mass, chirp_distance)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.Cosine" title="ml4gw.distributions.Cosine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cosine</span></code></a>([low, high, validate_args])</p></td>
 <td><p>Cosine distribution based on <code class="docutils literal notranslate"><span class="pre">torch.distributions.TransformedDistribution</span></code> (see <a class="reference external" href="https://docs.pytorch.org/docs/stable/distributions.html#transformeddistribution">documentation</a>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.DeltaFunction" title="ml4gw.distributions.DeltaFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeltaFunction</span></code></a>([peak, validate_args])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.DeltaFunction" title="ml4gw.distributions.DeltaFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DeltaFunction</span></code></a>([peak, validate_args])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.LogNormal" title="ml4gw.distributions.LogNormal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogNormal</span></code></a>(mean, std[, low, validate_args])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.LogNormal" title="ml4gw.distributions.LogNormal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogNormal</span></code></a>(mean, std[, low, validate_args])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.LogUniform" title="ml4gw.distributions.LogUniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogUniform</span></code></a>(low, high[, validate_args])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.LogUniform" title="ml4gw.distributions.LogUniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogUniform</span></code></a>(low, high[, validate_args])</p></td>
 <td><p>Sample from a log uniform distribution</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.PowerLaw" title="ml4gw.distributions.PowerLaw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PowerLaw</span></code></a>(minimum, maximum, index[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.PowerLaw" title="ml4gw.distributions.PowerLaw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PowerLaw</span></code></a>(minimum, maximum, index[, ...])</p></td>
 <td><p>Sample from a power law distribution,</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.RateEvolution" title="ml4gw.distributions.RateEvolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RateEvolution</span></code></a>(rate_function, *args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.RateEvolution" title="ml4gw.distributions.RateEvolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RateEvolution</span></code></a>(rate_function, *args, **kwargs)</p></td>
 <td><p>Wrapper around <a class="reference internal" href="#ml4gw.distributions.UniformComovingVolume" title="ml4gw.distributions.UniformComovingVolume"><code class="xref py py-meth docutils literal notranslate"><span class="pre">UniformComovingVolume()</span></code></a> to allow for arbitrary rate evolution functions.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.Sine" title="ml4gw.distributions.Sine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sine</span></code></a>([low, high, validate_args])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.Sine" title="ml4gw.distributions.Sine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sine</span></code></a>([low, high, validate_args])</p></td>
 <td><p>Sine distribution based on <code class="docutils literal notranslate"><span class="pre">torch.distributions.TransformedDistribution</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ml4gw.distributions.UniformComovingVolume" title="ml4gw.distributions.UniformComovingVolume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformComovingVolume</span></code></a>(minimum, maximum[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ml4gw.distributions.UniformComovingVolume" title="ml4gw.distributions.UniformComovingVolume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformComovingVolume</span></code></a>(minimum, maximum[, ...])</p></td>
 <td><p>Sample either redshift, comoving distance, or luminosity distance such that they are uniform in comoving volume, assuming a flat lambda-CDM cosmology.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py class">
+<dt class="sig sig-object py" id="ml4gw.distributions.ChirpDistanceUniform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml4gw.distributions.</span></span><span class="sig-name descname"><span class="pre">ChirpDistanceUniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chirp_distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_chirp_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.distributions.ChirpDistanceUniform" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chirp_distance</strong> (<em>Distribution</em>)</p></li>
+<li><p><strong>reference_chirp_mass</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ml4gw.distributions.ChirpDistanceUniform.get_distance">
+<span class="sig-name descname"><span class="pre">get_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chirp_mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chirp_distance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwrags</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.distributions.ChirpDistanceUniform.get_distance" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chirp_mass</strong> (<em>Tensor</em>)</p></li>
+<li><p><strong>chirp_distance</strong> (<em>Tensor</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ml4gw.distributions.ChirpDistanceUniform.log_prob">
+<span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chirp_mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.distributions.ChirpDistanceUniform.log_prob" title="Link to this definition"></a></dt>
+<dd><p>Evaluate prior in transformed coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chirp_mass</strong> (<em>Tensor</em>)</p></li>
+<li><p><strong>distance</strong> (<em>Tensor</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ml4gw.distributions.ChirpDistanceUniform.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chirp_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.distributions.ChirpDistanceUniform.sample" title="Link to this definition"></a></dt>
+<dd><p>if chirp mass is passes, the sampled uniform chirp distance
+is converted to luminosity distance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>N</strong> (<em>Size</em>)</p></li>
+<li><p><strong>chirp_mass</strong> (<em>Tensor</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ml4gw.distributions.ChirpDistanceUniform.scale">
+<span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chirp_mass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.distributions.ChirpDistanceUniform.scale" title="Link to this definition"></a></dt>
+<dd><p>return the mass scaling factor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chirp_mass</strong> (<em>Tensor</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="ml4gw.distributions.ChirpDistribution">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ml4gw.distributions.</span></span><span class="sig-name descname"><span class="pre">ChirpDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chirp_mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chirp_distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_chirp_mass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.distributions.ChirpDistribution" title="Link to this definition"></a></dt>
@@ -185,7 +262,7 @@ from the corresponding distribution.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="ml4gw.distributions.ChirpDistribution.log_prob">
-<span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chirp_mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.distributions.ChirpDistribution.log_prob" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chirp_mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ml4gw.distributions.ChirpDistribution.log_prob" title="Link to this definition"></a></dt>
 <dd><p>Evaluate prior in transformed coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
