@@ -8,8 +8,6 @@ ml4gw.distributions
 
    .. autosummary::
    
-      ChirpDistanceUniform
-      ChirpDistribution
       Cosine
       DeltaFunction
       LogNormal
