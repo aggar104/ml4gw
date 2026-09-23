@@ -268,3 +268,39 @@ class TestCosmologyDistributions:
             distributions.UniformComovingVolume(
                 minimum=0, maximum=6, distance_type="redshift"
             )
+
+
+def test_uniform_chirp_distance(seed_everything):
+    low = 100
+    high = 1000
+    m_ref = 1.22
+
+    sampler = distributions.UniformChirpDistance(
+        low=low,
+        high=high,
+        m_ref=m_ref,
+    )
+    chirp_mass = torch.tensor([1.0, 1.22, 2.0, 10.0])
+    dist = sampler(chirp_mass)
+
+    # Check batch shape
+    assert dist.batch_shape == chirp_mass.shape
+
+    # Expected chirp-mass scaling
+    factor = (chirp_mass / m_ref) ** (5 / 6)
+    expected_low = low * factor
+    expected_high = high * factor
+
+    assert torch.allclose(dist.low, expected_low)
+    assert torch.allclose(dist.high, expected_high)
+
+    # At the reference chirp mass, bounds should be unchanged
+    assert dist.low[1] == pytest.approx(low)
+    assert dist.high[1] == pytest.approx(high)
+
+    # Draw one distance for each chirp mass
+    samples = dist.sample()
+
+    assert samples.shape == chirp_mass.shape
+    assert torch.all(samples >= expected_low)
+    assert torch.all(samples <= expected_high)

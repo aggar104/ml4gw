@@ -391,3 +391,32 @@ class RateEvolution(UniformComovingVolume):
         # This is a tensor of ones if the distance type is redshift
         jacobian = torch.gradient(self.distance_grid, spacing=self.dz)[0]
         return dV_dz / jacobian * self.rate_function(self.z_grid)
+
+
+class UniformChirpDistance:
+    """
+    Construct a uniform luminosity-distance distribution from chirp-distance
+    bounds, where
+
+    .. math::
+        D_L = D_C
+        \left(\frac{\mathcal{M}}{\mathcal{M}_{\rm ref}}\right)^{5/6}.
+
+    Args:
+        low: Lower chirp-distance bound.
+        high: Upper chirp-distance bound.
+        m_ref: Reference chirp mass. Defaults to 1.22.
+    """
+
+    def __init__(self, low, high, m_ref=1.22):
+        self.low = low
+        self.high = high
+        self.m_ref = m_ref
+
+    def __call__(self, chirp_mass):
+        factor = (chirp_mass / self.m_ref) ** (5 / 6)
+
+        return torch.distributions.Uniform(
+            self.low * factor,
+            self.high * factor,
+        )
